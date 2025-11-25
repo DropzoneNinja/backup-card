@@ -1,0 +1,39 @@
+{
+  "backups": [
+    {
+      "name": "Production Database",
+      "start": "2025-11-25T01:00:00+11:00",
+      "duration": 482,
+      "outcome": "success",
+      "notes": "Backup completed successfully. All tables backed up."
+    },
+    {
+      "name": "Media Server",
+      "start": "2025-11-25T01:30:00+11:00",
+      "duration": 1847,
+      "outcome": "partial",
+      "notes": "Completed with warnings: 3 files skipped due to permissions, 2 symbolic links not followed."
+    },
+    {
+      "name": "Config Files",
+      "start": "2025-11-25T02:00:00+11:00",
+      "duration": 45,
+      "outcome": "failed",
+      "notes": "Connection timeout to remote storage after 45 seconds. Retry scheduled."
+    },
+    {
+      "name": "User Documents",
+      "start": "2025-11-25T02:15:00+11:00",
+      "duration": 3621,
+      "outcome": "success",
+      "notes": "1.2 TB backed up across 45,000 files."
+    },
+    {
+      "name": "Docker Volumes",
+      "start": "2025-11-25T03:30:00+11:00",
+      "duration": 125,
+      "outcome": "success",
+      "notes": ""
+    }
+  ]
+}
