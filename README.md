@@ -2,6 +2,12 @@
 
 A custom Lovelace card for Home Assistant that displays automated backup results with status indicators, timestamps, durations, and notes.
 
+## Preview
+
+Here's what the card looks like:
+
+![Backup Card Example](public/example.png)
+
 ## Features
 
 - Display single or multiple backup entries
