@@ -17,7 +17,7 @@ export const cardStyles = css`
   .card-header .name {
     font-size: 20px;
     font-weight: 500;
-    color: var(--text-primary-color);
+    color: var(--primary-text-color, var(--text-primary-color, #212121));
   }
 
   .backup-card-content {
@@ -55,7 +55,7 @@ export const backupItemStyles = css`
 
   .backup-name {
     font-weight: 500;
-    color: var(--text-primary-color);
+    color: var(--primary-text-color, var(--text-primary-color, #212121));
     font-size: 16px;
     flex: 1;
   }
@@ -63,7 +63,7 @@ export const backupItemStyles = css`
   .backup-details {
     display: flex;
     gap: 16px;
-    color: var(--text-secondary-color);
+    color: var(--secondary-text-color, var(--text-secondary-color, #727272));
     font-size: 14px;
     flex-wrap: wrap;
   }
@@ -75,7 +75,7 @@ export const backupItemStyles = css`
   }
 
   .backup-notes {
-    color: var(--text-secondary-color);
+    color: var(--secondary-text-color, var(--text-secondary-color, #727272));
     font-size: 14px;
     font-style: italic;
     word-wrap: break-word;

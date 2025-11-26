@@ -56,7 +56,7 @@ export class BackupModal extends LitElement {
       margin: 0;
       font-size: 20px;
       font-weight: 500;
-      color: var(--text-primary-color);
+      color: var(--primary-text-color, var(--text-primary-color, #212121));
     }
 
     .close-button {
@@ -69,7 +69,7 @@ export class BackupModal extends LitElement {
       align-items: center;
       justify-content: center;
       transition: background-color 0.2s;
-      color: var(--text-primary-color);
+      color: var(--primary-text-color, var(--text-primary-color, #212121));
     }
 
     .close-button:hover {
@@ -93,7 +93,7 @@ export class BackupModal extends LitElement {
       padding: 12px 16px;
       border-bottom: 1px solid var(--divider-color);
       font-weight: 500;
-      color: var(--text-primary-color);
+      color: var(--primary-text-color, var(--text-primary-color, #212121));
       font-size: 14px;
       position: sticky;
       top: 0;
@@ -120,7 +120,7 @@ export class BackupModal extends LitElement {
     .table-row-notes {
       grid-column: 1 / -1;
       padding: 0 16px 12px 40px;
-      color: var(--text-secondary-color);
+      color: var(--secondary-text-color, var(--text-secondary-color, #727272));
       font-style: italic;
       font-size: 14px;
       white-space: pre-wrap;
@@ -130,13 +130,13 @@ export class BackupModal extends LitElement {
     .cell-name {
       font-size: 15px;
       font-weight: 500;
-      color: var(--text-primary-color);
+      color: var(--primary-text-color, var(--text-primary-color, #212121));
     }
 
     .cell-datetime,
     .cell-size,
     .cell-duration {
-      color: var(--text-secondary-color);
+      color: var(--secondary-text-color, var(--text-secondary-color, #727272));
       font-size: 14px;
     }
 
@@ -180,25 +180,25 @@ export class BackupModal extends LitElement {
       .cell-datetime::before {
         content: "Date/Time:";
         font-weight: 500;
-        color: var(--text-primary-color);
+        color: var(--primary-text-color, var(--text-primary-color, #212121));
       }
 
       .cell-size::before {
         content: "Size:";
         font-weight: 500;
-        color: var(--text-primary-color);
+        color: var(--primary-text-color, var(--text-primary-color, #212121));
       }
 
       .cell-duration::before {
         content: "Duration:";
         font-weight: 500;
-        color: var(--text-primary-color);
+        color: var(--primary-text-color, var(--text-primary-color, #212121));
       }
 
       .cell-outcome::before {
         content: "Status:";
         font-weight: 500;
-        color: var(--text-primary-color);
+        color: var(--primary-text-color, var(--text-primary-color, #212121));
       }
 
       .table-row-notes {

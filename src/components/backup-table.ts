@@ -21,7 +21,7 @@ export class BackupTable extends LitElement {
       padding: 12px;
       border-bottom: 1px solid var(--divider-color);
       font-weight: 500;
-      color: var(--text-primary-color);
+      color: var(--primary-text-color, var(--text-primary-color, #212121));
       font-size: 14px;
     }
 
@@ -53,11 +53,11 @@ export class BackupTable extends LitElement {
     .cell-name {
       font-size: 16px;
       font-weight: 500;
-      color: var(--text-primary-color);
+      color: var(--primary-text-color, var(--text-primary-color, #212121));
     }
 
     .cell-date {
-      color: var(--text-secondary-color);
+      color: var(--secondary-text-color, var(--text-secondary-color, #727272));
       font-size: 14px;
     }
 
