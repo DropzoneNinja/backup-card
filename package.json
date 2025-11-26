@@ -1,6 +1,6 @@
 {
   "name": "backup-card",
-  "version": "1.0.0",
+  "version": "0.6.0-beta",
   "description": "Home Assistant custom card for displaying backup results",
   "type": "module",
   "main": "dist/backup-card.js",
