@@ -156,7 +156,7 @@ function t(t,e,r,s){var i,o=arguments.length,n=o<3?e:null===s?s=Object.getOwnPro
       display: grid;
       grid-template-columns: 2fr 1fr 1fr;
       gap: 12px;
-      padding: 12px;
+      padding: 8px 12px;
       border-bottom: 1px solid var(--divider-color);
       font-weight: 500;
       color: var(--primary-text-color, var(--text-primary-color, #212121));
@@ -167,11 +167,11 @@ function t(t,e,r,s){var i,o=arguments.length,n=o<3?e:null===s?s=Object.getOwnPro
       display: grid;
       grid-template-columns: 2fr 1fr 1fr;
       gap: 12px;
-      padding: 12px;
+      padding: 8px 12px;
       border-bottom: 1px solid var(--divider-color);
       cursor: pointer;
       transition: background-color 0.2s;
-      min-height: 44px;
+      min-height: 36px;
       align-items: center;
     }
 
