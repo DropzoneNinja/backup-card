@@ -180,7 +180,12 @@ function t(t,e,r,s){var i,o=arguments.length,n=o<3?e:null===s?s=Object.getOwnPro
     }
 
     .table-row:hover {
-      background: var(--secondary-background-color, rgba(0, 0, 0, 0.05));
+      background: var(--secondary-background-color);
+    }
+
+    .table-row:focus {
+      outline: 2px solid var(--primary-color);
+      outline-offset: -2px;
     }
 
     .cell-name {
@@ -314,7 +319,12 @@ function t(t,e,r,s){var i,o=arguments.length,n=o<3?e:null===s?s=Object.getOwnPro
     }
 
     .close-button:hover {
-      background: var(--secondary-background-color, rgba(0, 0, 0, 0.05));
+      background: var(--secondary-background-color);
+    }
+
+    .close-button:focus {
+      outline: 2px solid var(--primary-color);
+      outline-offset: 2px;
     }
 
     .modal-content {

@@ -73,7 +73,12 @@ export class BackupModal extends LitElement {
     }
 
     .close-button:hover {
-      background: var(--secondary-background-color, rgba(0, 0, 0, 0.05));
+      background: var(--secondary-background-color);
+    }
+
+    .close-button:focus {
+      outline: 2px solid var(--primary-color);
+      outline-offset: 2px;
     }
 
     .modal-content {

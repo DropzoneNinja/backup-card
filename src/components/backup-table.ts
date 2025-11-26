@@ -42,7 +42,12 @@ export class BackupTable extends LitElement {
     }
 
     .table-row:hover {
-      background: var(--secondary-background-color, rgba(0, 0, 0, 0.05));
+      background: var(--secondary-background-color);
+    }
+
+    .table-row:focus {
+      outline: 2px solid var(--primary-color);
+      outline-offset: -2px;
     }
 
     .cell-name {
