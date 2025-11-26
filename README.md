@@ -10,10 +10,12 @@ Here's what the card looks like:
 
 ## Features
 
-- Display single or multiple backup entries
+- Display single or multiple backup entries in compact table format
+- Click any row to open detailed modal view
 - Color-coded status badges (success, partial, failed)
-- Formatted date/time with locale support
+- Consistent date formatting ("12 Nov" format)
 - Human-readable duration display
+- Optional backup size display
 - Theme-aware styling (light/dark mode)
 - Mobile responsive design
 - Auto-refresh when entity updates
@@ -107,6 +109,31 @@ show_errors: false
 
 **Note:** You must specify either `entity` or `entities`, but not both.
 
+## Card Interactions
+
+### Normal View
+
+The card displays backups in a compact table format with three columns:
+- **Name**: Server/application name
+- **Date**: Short date format (e.g., "25 Nov")
+- **Status**: Color-coded status badge
+
+Click any row to open the detailed modal view.
+
+### Detailed Modal
+
+Clicking any backup row opens a centered modal dialog showing **ALL** backups with complete information:
+- **Name**: Server/application name
+- **Date/Time**: Full timestamp (e.g., "25 Nov 01:00")
+- **Size**: Backup size if provided (shows "-" if not available)
+- **Duration**: Time taken to complete
+- **Status**: Color-coded status badge
+- **Notes**: Displayed as indented text below each row
+
+Close the modal by:
+- Clicking the X button in the top-right corner
+- Clicking outside the modal (on the backdrop)
+
 ## Entity Data Format
 
 The card supports two entity attribute formats:
@@ -152,6 +179,7 @@ sensor.backup_results:
 | `duration` | number | Yes | Duration in seconds |
 | `outcome` | string | Yes | `success`, `failed`, or `partial` |
 | `notes` | string | No | Additional information or error messages |
+| `size` | string | No | Backup size (e.g., "2.4 GB", "450 MB") |
 
 ## Setting Up MQTT Sensors (Recommended)
 
@@ -209,7 +237,8 @@ result = {
             "start": datetime.now().isoformat(),
             "duration": 482,
             "outcome": "success",
-            "notes": "Completed successfully"
+            "notes": "Completed successfully",
+            "size": "2.4 GB"
         }
     ]
 }
@@ -250,7 +279,8 @@ result = {
     "start": start_time.isoformat(),
     "duration": duration,
     "outcome": outcome,
-    "notes": notes
+    "notes": notes,
+    "size": "450 MB"  # Optional: include backup size
 }
 
 publish.single(
@@ -290,7 +320,8 @@ mosquitto_pub -h mqtt-broker -t "$MQTT_TOPIC" -r -m "{
     \"start\": \"$START_TIME\",
     \"duration\": $DURATION,
     \"outcome\": \"$OUTCOME\",
-    \"notes\": \"$NOTES\"
+    \"notes\": \"$NOTES\",
+    \"size\": \"450 MB\"
 }"
 ```
 

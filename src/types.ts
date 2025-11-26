@@ -6,6 +6,7 @@ export interface BackupEntry {
   duration: number;
   outcome: BackupOutcome;
   notes: string;
+  size?: string;
 }
 
 export interface BackupCardConfig {
@@ -26,6 +27,7 @@ export interface BackupSensorState {
     duration?: number;
     outcome?: string;
     notes?: string;
+    size?: string;
   };
 }
 

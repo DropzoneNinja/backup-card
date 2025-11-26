@@ -3,7 +3,8 @@ import { customElement, property, state } from 'lit/decorators.js';
 import { cardStyles } from './styles';
 import { validateConfig, parseEntityData } from './config';
 import type { BackupCardConfig, BackupEntry, HomeAssistant, LovelaceCard } from './types';
-import './components/backup-item';
+import './components/backup-table';
+import './components/backup-modal';
 
 @customElement('backup-card')
 export class BackupCard extends LitElement implements LovelaceCard {
@@ -11,6 +12,7 @@ export class BackupCard extends LitElement implements LovelaceCard {
   @state() private _config!: BackupCardConfig;
   @state() private _backups: BackupEntry[] = [];
   @state() private _errors: string[] = [];
+  @state() private _modalOpen = false;
 
   static styles = cardStyles;
 
@@ -83,6 +85,14 @@ export class BackupCard extends LitElement implements LovelaceCard {
           ${this._renderBackups()}
         </div>
       </ha-card>
+      ${this._modalOpen ? html`
+        <backup-modal
+          .open=${this._modalOpen}
+          .backups=${this._backups}
+          .hass=${this.hass}
+          @close-modal=${this._closeModal}>
+        </backup-modal>
+      ` : ''}
     `;
   }
 
@@ -123,10 +133,20 @@ export class BackupCard extends LitElement implements LovelaceCard {
     }
 
     return html`
-      ${this._backups.map(backup => html`
-        <backup-item .backup=${backup} .hass=${this.hass}></backup-item>
-      `)}
+      <backup-table
+        .backups=${this._backups}
+        .hass=${this.hass}
+        @row-click=${this._handleRowClick}>
+      </backup-table>
     `;
+  }
+
+  private _handleRowClick(): void {
+    this._modalOpen = true;
+  }
+
+  private _closeModal(): void {
+    this._modalOpen = false;
   }
 
   public static getStubConfig(): BackupCardConfig {

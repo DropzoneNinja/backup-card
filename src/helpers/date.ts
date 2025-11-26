@@ -1,9 +1,30 @@
+const MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                     'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
 export function isValidDate(isoString: string): boolean {
   if (!isoString || typeof isoString !== 'string') {
     return false;
   }
   const date = new Date(isoString);
   return !isNaN(date.getTime());
+}
+
+export function formatShortDate(isoString: string): string {
+  if (!isValidDate(isoString)) {
+    return 'Invalid date';
+  }
+  const date = new Date(isoString);
+  return `${date.getDate()} ${MONTH_NAMES[date.getMonth()]}`;
+}
+
+export function formatShortDateTime(isoString: string): string {
+  if (!isValidDate(isoString)) {
+    return 'Invalid date';
+  }
+  const date = new Date(isoString);
+  const hours = date.getHours().toString().padStart(2, '0');
+  const minutes = date.getMinutes().toString().padStart(2, '0');
+  return `${formatShortDate(isoString)} ${hours}:${minutes}`;
 }
 
 export function formatDateTime(

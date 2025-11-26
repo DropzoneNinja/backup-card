@@ -5,14 +5,16 @@
       "start": "2025-11-25T01:00:00+11:00",
       "duration": 482,
       "outcome": "success",
-      "notes": "Backup completed successfully. All tables backed up."
+      "notes": "Backup completed successfully. All tables backed up.",
+      "size": "2.4 GB"
     },
     {
       "name": "Media Server",
       "start": "2025-11-25T01:30:00+11:00",
       "duration": 1847,
       "outcome": "partial",
-      "notes": "Completed with warnings: 3 files skipped due to permissions, 2 symbolic links not followed."
+      "notes": "Completed with warnings: 3 files skipped due to permissions, 2 symbolic links not followed.",
+      "size": "450 MB"
     },
     {
       "name": "Config Files",
@@ -26,14 +28,16 @@
       "start": "2025-11-25T02:15:00+11:00",
       "duration": 3621,
       "outcome": "success",
-      "notes": "1.2 TB backed up across 45,000 files."
+      "notes": "1.2 TB backed up across 45,000 files.",
+      "size": "1.2 TB"
     },
     {
       "name": "Docker Volumes",
       "start": "2025-11-25T03:30:00+11:00",
       "duration": 125,
       "outcome": "success",
-      "notes": ""
+      "notes": "",
+      "size": "85 MB"
     }
   ]
 }

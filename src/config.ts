@@ -67,7 +67,8 @@ function validateBackupEntry(data: any, index: number): { entry: BackupEntry | n
       start: data.start,
       duration: Math.max(0, duration),
       outcome: normalizeOutcome(data.outcome),
-      notes: typeof data.notes === 'string' ? data.notes.trim() : ''
+      notes: typeof data.notes === 'string' ? data.notes.trim() : '',
+      size: typeof data.size === 'string' ? data.size.trim() : undefined
     };
 
     return { entry, error: null };
