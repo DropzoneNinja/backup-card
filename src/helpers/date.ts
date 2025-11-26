@@ -14,6 +14,22 @@ export function formatShortDate(isoString: string): string {
     return 'Invalid date';
   }
   const date = new Date(isoString);
+  const today = new Date();
+
+  // Set both dates to midnight for accurate day comparison
+  const dateAtMidnight = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+  const todayAtMidnight = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+
+  // Calculate difference in days
+  const diffInMs = todayAtMidnight.getTime() - dateAtMidnight.getTime();
+  const diffInDays = Math.round(diffInMs / (1000 * 60 * 60 * 24));
+
+  if (diffInDays === 0) {
+    return 'Today';
+  } else if (diffInDays === 1) {
+    return 'Yesterday';
+  }
+
   return `${date.getDate()} ${MONTH_NAMES[date.getMonth()]}`;
 }
 
