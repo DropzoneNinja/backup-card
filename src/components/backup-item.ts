@@ -31,9 +31,16 @@ export class BackupItem extends LitElement {
           <div class="backup-detail">
             <span>${formatDateTime(this.backup.start, locale, timeFormat)}</span>
           </div>
-          <div class="backup-detail">
-            <span>Duration: ${formatDuration(this.backup.duration)}</span>
-          </div>
+          ${this.backup.outcome !== 'running' ? html`
+            <div class="backup-detail">
+              <span>Duration: ${formatDuration(this.backup.duration)}</span>
+            </div>
+          ` : ''}
+          ${this.backup.size ? html`
+            <div class="backup-detail">
+              <span>Size: ${this.backup.size}</span>
+            </div>
+          ` : ''}
         </div>
         ${this.backup.notes ? html`
           <div class="backup-notes">${this.backup.notes}</div>

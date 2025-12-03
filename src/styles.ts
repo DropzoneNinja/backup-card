@@ -124,6 +124,11 @@ export const outcomeBadgeStyles = css`
     color: white;
   }
 
+  .badge-running {
+    background: var(--info-color, #2196f3);
+    color: white;
+  }
+
   ha-icon {
     --mdc-icon-size: 16px;
   }

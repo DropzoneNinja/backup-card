@@ -1,7 +1,7 @@
 import type { BackupOutcome } from '../types';
 
 export function isValidOutcome(outcome: string): outcome is BackupOutcome {
-  return outcome === 'success' || outcome === 'failed' || outcome === 'partial';
+  return outcome === 'success' || outcome === 'failed' || outcome === 'partial' || outcome === 'running';
 }
 
 export function normalizeOutcome(outcome: unknown): BackupOutcome {
@@ -16,6 +16,9 @@ export function normalizeOutcome(outcome: unknown): BackupOutcome {
     if (lower === 'failed' || lower === 'fail' || lower === 'error') {
       return 'failed';
     }
+    if (lower === 'running' || lower === 'in_progress' || lower === 'in progress' || lower === 'ongoing') {
+      return 'running';
+    }
   }
   console.warn(`Invalid outcome value: ${outcome}, defaulting to 'failed'`);
   return 'failed';
@@ -29,6 +32,8 @@ export function getStatusIcon(outcome: BackupOutcome): string {
       return 'mdi:alert';
     case 'failed':
       return 'mdi:close-circle';
+    case 'running':
+      return 'mdi:progress-clock';
     default:
       return 'mdi:help-circle';
   }
@@ -42,6 +47,8 @@ export function getStatusColor(outcome: BackupOutcome): string {
       return 'var(--warning-color, #ff9800)';
     case 'failed':
       return 'var(--error-color, #f44336)';
+    case 'running':
+      return 'var(--info-color, #2196f3)';
     default:
       return 'var(--disabled-text-color, #9e9e9e)';
   }

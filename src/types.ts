@@ -1,4 +1,4 @@
-export type BackupOutcome = 'success' | 'failed' | 'partial';
+export type BackupOutcome = 'success' | 'failed' | 'partial' | 'running';
 
 export interface BackupEntry {
   name: string;
